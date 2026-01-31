@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLX - Virus Builder</title>
+  <meta name="description" content="Outil Virus Builder BLX - Stealer, Malware, RAT, Backdoor, Ransomware. Webhook Discord, build .py ou .exe, documentation complète.">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta property="og:title" content="BLX - Virus Builder">
+  <meta property="og:description" content="Outil Virus Builder BLX - Stealer, Malware, RAT, Backdoor, Ransomware. Webhook Discord, build .py ou .exe, documentation complète.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="BLX - Virus Builder">
+  <meta name="twitter:description" content="Outil Virus Builder BLX - Stealer, Malware, RAT, Backdoor, Ransomware. Webhook Discord, build .py ou .exe.">
+  <link rel="icon" href="../Img/BLX_icon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="../Img/BLX_icon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu</a>
+  <header class="header">
+    <nav class="nav container">
+      <a href="#" class="logo"><img src="../Img/BLX_icon.ico" alt="" class="logo-icon" width="28" height="28"> BLX</a>
+      <ul class="nav-links">
+        <li><a href="#presentation">Présentation</a></li>
+        <li><a href="#quickstart">Démarrage</a></li>
+        <li><a href="#stealer">Stealer</a></li>
+        <li><a href="#malware">Malware</a></li>
+        <li><a href="#ransomware">Ransomware</a></li>
+        <li><a href="#structure">Structure</a></li>
+        <li><a href="#chemins">Chemins</a></li>
+        <li><a href="#deps">Dépendances</a></li>
+        <li><a href="https://github.com/BenzoXdev/Blx-Virus-Builder" target="_blank" rel="noopener" class="btn-gh">GitHub</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <div class="disclaimer-banner" role="alert">
+    <p><strong>Avertissement</strong> — Cet outil est fourni à des fins <strong>éducatives et de recherche en cybersécurité</strong> uniquement. L’auteur et les contributeurs ne sont en aucun cas responsables de l’usage illégal ou malveillant qui pourrait en être fait. L’utilisation de ce logiciel pour attaquer des systèmes sans autorisation explicite est interdite et peut être punie par la loi. En utilisant cet outil, vous acceptez d’en faire un usage légal et éthique.</p>
+  </div>
+
+  <main id="main-content">
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="container hero-content">
+        <p class="hero-badge">BLX v6.7</p>
+        <h1 class="hero-title">
+          <span class="hero-title-main">Virus Builder</span>
+          <span class="hero-title-sub">Stealer · Malware · RAT · Backdoor · Ransomware</span>
+        </h1>
+        <p class="hero-desc">
+          Interface graphique (CustomTkinter), webhook Discord, build en .py ou .exe avec icône personnalisable.
+          Options modulaires, configs RAT / Backdoor / Ransomware, déchiffreur et bot opérateur intégrés.
+        </p>
+        <div class="hero-cta">
+          <a href="https://github.com/BenzoXdev/Blx-Virus-Builder" target="_blank" rel="noopener" class="btn btn-primary">Voir sur GitHub</a>
+          <a href="#quickstart" class="btn btn-outline">Démarrage rapide</a>
+        </div>
+        <p class="hero-author">Par <a href="https://github.com/benzoXdev" target="_blank" rel="noopener">benzoXdev</a></p>
+        <a href="#features" class="hero-scroll-indicator" aria-label="Découvrir">
+          <span></span>
+        </a>
+      </div>
+    </section>
+
+    <section id="features" class="section section-features reveal">
+      <div class="container">
+        <h2 class="section-title">Points forts</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <span class="feature-icon">⚙️</span>
+            <h3>Modulaire</h3>
+            <p>Cochez uniquement les modules souhaités (Stealer, Malware, RAT, Backdoor, Ransomware).</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🔗</span>
+            <h3>Webhook Discord</h3>
+            <p>Envoi des données vers un webhook, test intégré, rapports victimes (Ransomware).</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">📦</span>
+            <h3>Build .py / .exe</h3>
+            <p>Sortie en script Python ou exécutable Windows, icône .ico personnalisable.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🔐</span>
+            <h3>Ransomware complet</h3>
+            <p>Chiffrement .blx, clés stockées, déchiffreur (GUI + CLI), bot Discord !key / !exfil.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="presentation" class="section reveal">
+      <div class="container">
+        <h2 class="section-title">Présentation</h2>
+        <p class="section-intro">
+          Le Virus Builder BLX permet de configurer un payload via une interface graphique (CustomTkinter) :
+          webhook Discord obligatoire, modules Stealer et/ou Malware à cocher, configs optionnelles (RAT, Backdoor, Ransomware),
+          puis build en fichier Python (.py) ou exécutable (.exe) avec icône personnalisable.
+        </p>
+        <div class="cards">
+          <article class="card">
+            <h3>Webhook & options</h3>
+            <p>Saisir l’URL du webhook, cocher Stealer et/ou Malware, configurer RAT / Backdoor / Ransomware si besoin.</p>
+          </article>
+          <article class="card">
+            <h3>Build</h3>
+            <p>Nom du fichier, type (.py ou .exe), icône (.ico). Les sorties sont dans <code>1-Output/VirusBuilder/</code>.</p>
+          </article>
+          <article class="card">
+            <h3>Ransomware</h3>
+            <p>Clés dans BLX_ransomware_keys.json, déchiffreur BLX_Decryptor, bot Discord pour !key, !keys, !exfil, !info.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="quickstart" class="section section-alt reveal">
+      <div class="container">
+        <h2 class="section-title">Démarrage rapide</h2>
+        <p class="section-intro">Prérequis : Git, Python 3, Windows (recommandé).</p>
+        <div class="steps">
+          <div class="step">
+            <span class="step-num">1</span>
+            <div>
+              <h3>Cloner le dépôt</h3>
+              <div class="code-block">
+                <pre><code>git clone https://github.com/BenzoXdev/Blx-Virus-Builder.git
+cd BLX</code></pre>
+                <button type="button" class="copy-btn" data-copy="git clone https://github.com/BenzoXdev/Blx-Virus-Builder.git\ncd BLX" aria-label="Copier">Copier</button>
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">2</span>
+            <div>
+              <h3>Installer les dépendances</h3>
+              <div class="code-block">
+                <pre><code>pip install -r requirements.txt</code></pre>
+                <button type="button" class="copy-btn" data-copy="pip install -r requirements.txt" aria-label="Copier">Copier</button>
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">3</span>
+            <div>
+              <h3>Lancer le builder</h3>
+              <div class="code-block">
+                <pre><code>python Virus-Builder.py</code></pre>
+                <button type="button" class="copy-btn" data-copy="python Virus-Builder.py" aria-label="Copier">Copier</button>
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">4</span>
+            <div>
+              <h3>Configurer et builder</h3>
+              <p>Renseigner le webhook, cocher les options, nom du fichier, type (.py ou .exe), puis cliquer sur <strong>Build</strong>. Les fichiers sont créés dans <code>1-Output/VirusBuilder/</code>.</p>
+            </div>
+          </div>
+        </div>
+        <p class="note">Sous Windows : <code>run.bat</code> ou <code>setup.bat</code>. Sous Linux : <code>python3 Virus-Builder.py</code> si besoin.</p>
+      </div>
+    </section>
+
+    <section id="installation" class="section reveal">
+      <div class="container">
+        <h2 class="section-title">Installation et lancement</h2>
+        <div class="code-block">
+          <pre><code># Cloner le dépôt
+git clone https://github.com/BenzoXdev/Blx-Virus-Builder.git
+cd BLX
+
+# Installer les dépendances
+pip install -r requirements.txt
+
+# Lancer le builder (depuis le dossier du projet)
+python Virus-Builder.py</code></pre>
+          <button type="button" class="copy-btn" data-copy="git clone https://github.com/BenzoXdev/Blx-Virus-Builder.git\ncd BLX\n\npip install -r requirements.txt\n\npython Virus-Builder.py" aria-label="Copier">Copier</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="stealer" class="section section-alt reveal">
+      <div class="container">
+        <h2 class="section-title">Options Stealer</h2>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Option</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>System Info</td><td>Informations système (OS, CPU, RAM, etc.)</td></tr>
+              <tr><td>Wallets Session Files</td><td>Fichiers de session des portefeuilles crypto</td></tr>
+              <tr><td>Games Session Files</td><td>Fichiers de session des launchers de jeux</td></tr>
+              <tr><td>Telegram Session Files</td><td>Fichiers de session Telegram</td></tr>
+              <tr><td>Roblox Accounts</td><td>Comptes Roblox</td></tr>
+              <tr><td>Discord Accounts</td><td>Comptes Discord (tokens, etc.)</td></tr>
+              <tr><td>Discord Injection</td><td>Injection dans le client Discord</td></tr>
+              <tr><td>Passwords</td><td>Mots de passe navigateurs</td></tr>
+              <tr><td>Cookies</td><td>Cookies navigateurs</td></tr>
+              <tr><td>Browsing History</td><td>Historique de navigation</td></tr>
+              <tr><td>Download History</td><td>Historique des téléchargements</td></tr>
+              <tr><td>Cards</td><td>Cartes bancaires enregistrées</td></tr>
+              <tr><td>Extensions</td><td>Extensions de navigateurs</td></tr>
+              <tr><td>Interesting Files</td><td>Fichiers jugés intéressants</td></tr>
+              <tr><td>Webcam</td><td>Capture webcam</td></tr>
+              <tr><td>Screenshot</td><td>Capture d’écran</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="malware" class="section reveal">
+      <div class="container">
+        <h2 class="section-title">Options Malware</h2>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Option</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Block Key</td><td>Bloquer le clavier</td></tr>
+              <tr><td>Block Mouse</td><td>Bloquer la souris</td></tr>
+              <tr><td>Block Task Manager</td><td>Bloquer le Gestionnaire des tâches</td></tr>
+              <tr><td>Block AV Website</td><td>Bloquer l’accès à des sites d’antivirus</td></tr>
+              <tr><td>Shutdown</td><td>Éteindre la machine</td></tr>
+              <tr><td>Message Popup</td><td>Fenêtre titre/message (info/warning/error/question)</td></tr>
+              <tr><td>Spam Open Program</td><td>Ouvrir en boucle des programmes</td></tr>
+              <tr><td>Spam Create File</td><td>Créer des fichiers en boucle</td></tr>
+              <tr><td>Anti VM & Debug</td><td>Détection VM / debug</td></tr>
+              <tr><td>Launch at Startup</td><td>Lancer au démarrage Windows</td></tr>
+              <tr><td>Restart Every 5min</td><td>Redémarrer le payload toutes les 5 minutes</td></tr>
+              <tr><td>RAT</td><td>RAT Discord — config : token, server ID, persistance, admin</td></tr>
+              <tr><td>Backdoor (Shell)</td><td>Backdoor / shell Discord — config similaire</td></tr>
+              <tr><td>Ransomware</td><td>Chiffrement .blx + déchiffreur + bot opérateur</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="ransomware" class="section section-alt reveal">
+      <div class="container">
+        <h2 class="section-title">Ransomware & Bot Discord</h2>
+        <p class="section-intro">
+          Avec l’option Ransomware : clés dans <code>BLX_ransomware_keys.json</code>, déchiffreur <code>BLX_Decryptor.exe</code> (déposé sur le Bureau),
+          bot <code>BLX_Ransomware_Bot.py</code> pour gérer les clés et l’exfil. Config builder : extensions/chemins exclus, README personnalisé, délai avant chiffrement.
+        </p>
+
+        <h3 class="subsection-title">Déchiffreur (BLX_Decryptor)</h3>
+        <ul class="bullet-list">
+          <li><strong>GUI</strong> : clé base64, dossier à déchiffrer, <strong>Count .blx</strong>, progression, <strong>Stop</strong>, rapport (Bureau ou dossier), clé mémorisée (AppData), nettoyage et auto-suppression après succès.</li>
+          <li><strong>CLI</strong> : <code>python BLX_Decryptor.py --cli</code> — saisir la clé et le dossier.</li>
+        </ul>
+
+        <h3 class="subsection-title">Commandes du bot</h3>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Commande</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>!key &lt;victim_id&gt;</code></td><td>Envoie la clé de déchiffrement en MP</td></tr>
+              <tr><td><code>!key &lt;victim_id&gt; &lt;channel_id&gt;</code></td><td>Envoie la clé dans le canal indiqué</td></tr>
+              <tr><td><code>!keys</code></td><td>Liste les Victim ID</td></tr>
+              <tr><td><code>!exfil &lt;victim_id&gt; &lt;chemin&gt;</code></td><td>Commande d’exfiltration (max 8 Mo, sous C:\Users)</td></tr>
+              <tr><td><code>!info</code> / <code>!info &lt;victim_id&gt;</code></td><td>État du bot ou clé pour une victime</td></tr>
+              <tr><td><code>!decryptor</code></td><td>Instructions pour la victime (BLX_Decryptor)</td></tr>
+              <tr><td><code>!help</code></td><td>Aide des commandes</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">Config : copier <code>BLX_ransomware_bot_config.example.json</code> en <code>BLX_ransomware_bot_config.json</code> et renseigner <code>token</code>, <code>server_id</code>. Optionnel : <code>exfil_channel_id</code>, <code>allowed_role_ids</code>, <code>log_file</code>.</p>
+      </div>
+    </section>
+
+    <section id="structure" class="section reveal">
+      <div class="container">
+        <h2 class="section-title">Structure du projet</h2>
+        <div class="code-block tree">
+          <pre><code>Virus Builder/
+├── Virus-Builder.py              # Point d'entrée
+├── Config/
+│   ├── Config.py                 # Configuration (nom, version)
+│   └── Util.py                   # Utilitaires (banner, couleurs)
+├── FileDetectedByAntivirus/
+│   └── BuilderOptions.py         # CORE, STEALER, MALWARE, DISCORD
+├── Ransomware/
+│   ├── BLX_Decryptor.py          # Déchiffreur .blx
+│   ├── BLX_Ransomware_Bot.py     # Bot Discord
+│   └── build_decryptor_exe.bat   # Compile le déchiffreur en EXE
+├── Img/                          # Icônes .ico
+├── 1-Output/VirusBuilder/        # Sortie des builds + clés
+├── requirements.txt
+└── README.md</code></pre>
+          <button type="button" class="copy-btn" data-copy="Virus Builder/&#10;├── Virus-Builder.py              # Point d'entrée&#10;├── Config/&#10;│   ├── Config.py                 # Configuration (nom, version)&#10;│   └── Util.py                   # Utilitaires (banner, couleurs)&#10;├── FileDetectedByAntivirus/&#10;│   └── BuilderOptions.py         # CORE, STEALER, MALWARE, DISCORD&#10;├── Ransomware/&#10;│   ├── BLX_Decryptor.py          # Déchiffreur .blx&#10;│   ├── BLX_Ransomware_Bot.py     # Bot Discord&#10;│   └── build_decryptor_exe.bat   # Compile le déchiffreur en EXE&#10;├── Img/                          # Icônes .ico&#10;├── 1-Output/VirusBuilder/        # Sortie des builds + clés&#10;├── requirements.txt&#10;└── README.md" aria-label="Copier">Copier</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="chemins" class="section section-alt reveal">
+      <div class="container">
+        <h2 class="section-title">Chemins utiles</h2>
+        <p class="section-intro">Principaux dossiers et fichiers (depuis la racine <code>Virus Builder/</code>) :</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Usage</th>
+                <th>Chemin</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Point d'entrée</td><td><code>Virus-Builder.py</code></td></tr>
+              <tr><td>Sortie des builds (.py / .exe)</td><td><code>1-Output/VirusBuilder/</code></td></tr>
+              <tr><td>Clés Ransomware</td><td><code>1-Output/VirusBuilder/BLX_ransomware_keys.json</code>, <code>Ransomware/BLX_ransomware_keys.json</code></td></tr>
+              <tr><td>Déchiffreur (script)</td><td><code>Ransomware/BLX_Decryptor.py</code></td></tr>
+              <tr><td>Déchiffreur (EXE compilé)</td><td><code>Ransomware/dist/BLX_Decryptor.exe</code></td></tr>
+              <tr><td>Bot Discord</td><td><code>Ransomware/BLX_Ransomware_Bot.py</code></td></tr>
+              <tr><td>Config du bot (exemple)</td><td><code>Ransomware/BLX_ransomware_bot_config.example.json</code></td></tr>
+              <tr><td>Config du bot (à créer)</td><td><code>Ransomware/BLX_ransomware_bot_config.json</code></td></tr>
+              <tr><td>Build déchiffreur en EXE</td><td><code>Ransomware/build_decryptor_exe.bat</code></td></tr>
+              <tr><td>Icône principale</td><td><code>Img/BLX_icon.ico</code></td></tr>
+              <tr><td>Icône déchiffreur</td><td><code>Img/7752569.ico</code></td></tr>
+              <tr><td>Documentation</td><td><code>README.md</code>, <code>Ransomware/README.md</code></td></tr>
+              <tr><td>Dépendances</td><td><code>requirements.txt</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="deps" class="section reveal">
+      <div class="container">
+        <h2 class="section-title">Dépendances principales</h2>
+        <p class="section-intro">Builder (GUI), Stealer, système, capture, RAT, Windows :</p>
+        <div class="tags">
+          <span>colorama</span>
+          <span>cryptography</span>
+          <span>customtkinter</span>
+          <span>requests</span>
+          <span>discord.py</span>
+          <span>pyinstaller</span>
+          <span>browser-cookie3</span>
+          <span>pycryptodome</span>
+          <span>psutil</span>
+          <span>opencv-python</span>
+          <span>Pillow</span>
+          <span>keyboard</span>
+          <span>pyautogui</span>
+          <span>pywin32</span>
+          <span>…</span>
+        </div>
+        <div class="code-block">
+          <pre><code>pip install -r requirements.txt</code></pre>
+          <button type="button" class="copy-btn" data-copy="pip install -r requirements.txt" aria-label="Copier">Copier</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-disclaimer">
+        <p><strong>Disclaimer :</strong> L’auteur décline toute responsabilité quant à l’usage fait de cet outil. Utilisation autorisée uniquement à des fins éducatives et sur des systèmes dont vous avez l’autorisation. Tout usage illégal vous engage seul.</p>
+      </div>
+      <div class="footer-brand">
+        <img src="../Img/BLX_icon.ico" alt="" width="32" height="32" class="footer-logo">
+        <p><strong>BLX Virus Builder</strong> — Outil modulaire Stealer, Malware, RAT, Backdoor, Ransomware.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/BenzoXdev/Blx-Virus-Builder" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/benzoXdev" target="_blank" rel="noopener">benzoXdev</a>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" aria-label="Retour en haut" title="Retour en haut">
+    <span aria-hidden="true">↑</span>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
